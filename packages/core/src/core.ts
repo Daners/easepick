@@ -1,10 +1,10 @@
-import Calendar from './calendar';
 import { DateTime } from '@easepick/datetime';
+import Calendar from './calendar';
 import PluginManager from './pluginManager';
 import {
   IEventDetail,
   IPickerConfig,
-  IPickerElements,
+  IPickerElements
 } from './types';
 
 export class Core {
@@ -65,8 +65,8 @@ export class Core {
     this.ui.wrapper.style.position = 'absolute';
     this.ui.wrapper.style.pointerEvents = 'none';
     this.ui.wrapper.className = 'easepick-wrapper';
-    this.ui.wrapper.attachShadow({ mode: 'open' });
-    this.ui.shadowRoot = this.ui.wrapper.shadowRoot;
+    // this.ui.wrapper.attachShadow({ mode: 'open' });
+    // this.ui.shadowRoot = this.ui.wrapper.shadowRoot;
 
     this.ui.container = document.createElement('div');
     this.ui.container.className = 'container';
@@ -80,7 +80,7 @@ export class Core {
       this.ui.container.classList.add('inline');
     }
 
-    this.ui.shadowRoot.appendChild(this.ui.container);
+    this.ui.wrapper.appendChild(this.ui.container);
     (this.options.element as HTMLElement).after(this.ui.wrapper);
 
     this.handleCSS();
